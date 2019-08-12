@@ -1,0 +1,95 @@
+﻿<Page
+    x:Class="SocialCRM_UWP.Introduction"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Image Source="ms-appx:///Assets/back.jpg" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+        <Grid Background="{ThemeResource LightWhite}">
+            <Grid x:Name="LoginPanel" Visibility="Visible" FlowDirection="RightToLeft" Width="540" Height="540" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <StackPanel Grid.Column="0" x:Name="loginPanel" FlowDirection="RightToLeft" HorizontalAlignment="Center" VerticalAlignment="Center" Width="256">
+                        <TextBlock Text="شناسه کاربری" Margin="12,0,0,0" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                        <TextBox x:Name="UsernameBox" BorderThickness="1" BorderBrush="LightGray" FlowDirection="LeftToRight" HorizontalAlignment="Stretch" Margin="12"/>
+                        <TextBlock Text="گذرواژه" Margin="12,0,0,0" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                        <PasswordBox KeyDown="PasswordBox_KeyDown" x:Name="PasswordBox" BorderThickness="1" BorderBrush="LightGray" FlowDirection="LeftToRight" HorizontalAlignment="Stretch" Margin="12"/>
+                        <CheckBox x:Name="RemembermeBox" Margin="12,0,0,0" Content="مرا به خاط بسپار" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                        <Button Background="Transparent" BorderThickness="2" BorderBrush="LightGray" x:Name="LoginBtn" Click="LoginBtn_Click" Margin="12" Padding="5" HorizontalAlignment="Stretch" Content="ورود به سامانه" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <GridView Grid.Column="1" SelectionMode="None" IsItemClickEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <GridView.Items>
+                            <StackPanel Height="156" Width="128">
+                                <Image HorizontalAlignment="Center">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="ms-appx:///Assets/Animaticons/animat-checkmark-color.gif"   />
+                                    </Image.Source>
+                                </Image>
+                                <TextBlock TextAlignment="Center" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="فیلترینگ هوشمند"/>
+                            </StackPanel>
+                            <!--<StackPanel Height="156" Width="128">
+                            <Image HorizontalAlignment="Center">
+                                <Image.Source>
+                                    <BitmapImage UriSource="ms-appx:///Assets/Animaticons/animat-lightbulb-color.gif"   />
+                                </Image.Source>
+                            </Image>
+                            <TextBlock TextAlignment="Center" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="امکانات خلاقانه"/>
+                        </StackPanel>-->
+                            <StackPanel Height="156" Width="128">
+                                <Image HorizontalAlignment="Center">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="ms-appx:///Assets/Animaticons/animat-image-color.gif"   />
+                                    </Image.Source>
+                                </Image>
+                                <TextBlock TextAlignment="Center" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="مدیریت محتوا"/>
+                            </StackPanel>
+                            <StackPanel Height="156" Width="128">
+                                <Image HorizontalAlignment="Center">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="ms-appx:///Assets/Animaticons/animat-linechart-color.gif"   />
+                                    </Image.Source>
+                                </Image>
+                                <TextBlock TextAlignment="Center" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="تحلیل هوشمند"/>
+                            </StackPanel>
+                            <StackPanel Height="156" Width="128">
+                                <Image HorizontalAlignment="Center">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="ms-appx:///Assets/Animaticons/animat-pencil-color.gif" />
+                                    </Image.Source>
+                                </Image>
+                                <TextBlock TextAlignment="Center" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="مدیریت نظرات"/>
+                            </StackPanel>
+                            <!--<StackPanel Height="156" Width="128">
+                            <Image HorizontalAlignment="Center">
+                                <Image.Source>
+                                    <BitmapImage UriSource="ms-appx:///Assets/Animaticons/animat-search-color.gif" />
+                                </Image.Source>
+                            </Image>
+                            <TextBlock TextAlignment="Center" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="مدیریت مشتریان"/>
+                        </StackPanel>-->
+                        </GridView.Items>
+                    </GridView>
+                </Grid>
+            </Grid>
+            <Grid x:Name="ProgressPanel" Visibility="Collapsed" FlowDirection="LeftToRight" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ProgressRing Margin="5" Grid.Column="0" IsActive="True" Width="64" Height="64"/>
+                <TextBlock Margin="5" Grid.Column="1" x:Name="ProgressPanelText" Text="لطفا منتظر بمانید" VerticalAlignment="Center" TextAlignment="Center" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

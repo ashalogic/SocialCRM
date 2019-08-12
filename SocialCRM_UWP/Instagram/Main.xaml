@@ -1,0 +1,215 @@
+﻿<Page
+    x:Class="SocialCRM_UWP.Instagram.Main"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SocialCRM_UWP.Instagram"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    CacheMode="BitmapCache"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Background="{ThemeResource AppBarTop}" Padding="12,26,0,12" FlowDirection="LeftToRight" Grid.Row="0" Orientation="Horizontal">
+            <Button x:Name="BackButton" Background="Transparent" Click="BackButton_Click">
+                <StackPanel FlowDirection="RightToLeft" Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="سایر حساب ها"/>
+                    <!--<FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8BB;"/>-->
+                    <SymbolIcon Margin="12,0,0,0" Symbol="List"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="RefreshButton" Background="Transparent" Click="RefreshButton_Click">
+                <SymbolIcon Symbol="Refresh"/>
+            </Button>
+        </StackPanel>
+        <Pivot Grid.Row="1" Style="{StaticResource PivotStyleCenter}" Background="#f2f2f2" Padding="0,12,0,0">
+            <PivotItem Margin="0,-2,0,0">
+                <PivotItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <FontIcon Margin="0,5,0,5" FontSize="28" FontFamily="Segoe MDL2 Assets" Glyph="&#xE77B;"/>
+                        <TextBlock Margin="0,0,0,5" Grid.Row="1" FontSize="14" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="داشبورد اینستاگرام"/>
+                    </Grid>
+                </PivotItem.Header>
+
+                <Frame x:Name="DashboardFrame">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition/>
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </PivotItem>
+            <PivotItem Margin="0,-2,0,0">
+                <PivotItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <FontIcon Margin="0,5,0,5" FontSize="28" FontFamily="Segoe MDL2 Assets" Glyph="&#xE8B9;"/>
+                        <TextBlock Margin="0,0,0,5" Grid.Row="1" FontSize="14" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="مدیریت پست‌ها"/>
+                    </Grid>
+                </PivotItem.Header>
+
+                <Frame x:Name="MediaManagementFrame">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition/>
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </PivotItem>
+            <PivotItem Margin="0,-2,0,0">
+                <PivotItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <FontIcon Margin="0,5,0,5" FontSize="28" FontFamily="Segoe MDL2 Assets" Glyph="&#xE8F5;"/>
+                        <TextBlock Margin="0,0,0,5" Grid.Row="1" FontSize="14" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="مدیریت پست‌های آتی"/>
+                    </Grid>
+                </PivotItem.Header>
+
+                <Frame x:Name="ScheduleManagementFrame">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition/>
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </PivotItem>
+            <PivotItem Margin="0,-2,0,0">
+                <PivotItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <FontIcon Margin="0,5,0,5" FontSize="28" FontFamily="Segoe MDL2 Assets" Glyph="&#xEB05;"/>
+                        <TextBlock Margin="0,0,0,5" Grid.Row="1" FontSize="14" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="تحلیل رقبا"/>
+                    </Grid>
+                </PivotItem.Header>
+
+                <Frame x:Name="CAnalyserFrame">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition/>
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </PivotItem>
+            <!--<PivotItem Margin="0,-2,0,0">
+                <PivotItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <FontIcon Margin="0,5,0,5" FontSize="28" FontFamily="Segoe MDL2 Assets" Glyph="&#xE8F2;"/>
+                        <TextBlock Margin="0,0,0,5" Grid.Row="1" FontSize="14" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="مدیریت نظرات"/>
+                    </Grid>
+                </PivotItem.Header>
+
+                <Frame x:Name="CommentsManagementFrame">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition/>
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </PivotItem>-->
+            <PivotItem Margin="0,-2,0,0">
+                <PivotItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <FontIcon Margin="0,5,0,5" FontSize="28" FontFamily="Segoe MDL2 Assets" Glyph="&#xE716;"/>
+                        <TextBlock Margin="0,0,0,5" Grid.Row="1" FontSize="14" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="مدیریت کاربرها"/>
+                    </Grid>
+                </PivotItem.Header>
+
+                <Frame x:Name="FollowerManagementFrame">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition/>
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </PivotItem>
+            <PivotItem Margin="0,-2,0,0">
+                <PivotItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <FontIcon Margin="0,5,0,5" FontSize="28" FontFamily="Segoe MDL2 Assets" Glyph="&#xE715;"/>
+                        <TextBlock Margin="0,0,0,5" Grid.Row="1" FontSize="14" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="دایرکت"/>
+                    </Grid>
+                </PivotItem.Header>
+
+                <Frame x:Name="DirectFrame">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition/>
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </PivotItem>
+            <PivotItem Margin="0,-2,0,0">
+                <PivotItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <FontIcon Margin="0,5,0,5" FontSize="28" FontFamily="Segoe MDL2 Assets" Glyph="&#xE8EC;"/>
+                        <TextBlock Margin="0,0,0,5" Grid.Row="1" FontSize="14" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="جستجو گر هشتگ"/>
+                    </Grid>
+                </PivotItem.Header>
+
+                <Frame x:Name="HashtagManagementFrame">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition/>
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </PivotItem>
+            <PivotItem Margin="0,-2,0,0">
+                <PivotItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <FontIcon Margin="0,5,0,5" FontSize="28" FontFamily="Segoe MDL2 Assets" Glyph="&#xE899;"/>
+                        <TextBlock Margin="0,0,0,5" Grid.Row="1" FontSize="14" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="مسابقه"/>
+                    </Grid>
+                </PivotItem.Header>
+
+                <Frame x:Name="LotteryFrame">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition/>
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </PivotItem>
+
+        </Pivot>
+    </Grid>
+
+</Page>

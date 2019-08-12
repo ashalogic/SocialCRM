@@ -1,0 +1,250 @@
+﻿<Page
+    x:Class="SocialCRM_UWP.Instagram.Pages.MediaManagement"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SocialCRM_UWP.Instagram.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mv="using:SocialCRM_UWP.Instagram.Models"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Page.Resources>
+        <Style x:Key="CalendarDatePickerPersian" TargetType="CalendarDatePicker">
+            <Setter Property="Foreground" Value="{ThemeResource CalendarDatePickerForeground}"/>
+            <Setter Property="Background" Value="{ThemeResource CalendarDatePickerBackground}"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource CalendarDatePickerBorderBrush}"/>
+            <Setter Property="BorderThickness" Value="{ThemeResource CalendarDatePickerBorderThemeThickness}"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="UseSystemFocusVisuals" Value="{ThemeResource IsApplicationFocusVisualKindReveal}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CalendarDatePicker">
+                        <Grid x:Name="Root">
+                            <FlyoutBase.AttachedFlyout>
+                                <Flyout Placement="Bottom">
+                                    <Flyout.FlyoutPresenterStyle>
+                                        <Style TargetType="FlyoutPresenter">
+                                            <Setter Property="Padding" Value="0"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="FlyoutPresenter">
+                                                        <ContentPresenter Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentTransitions="{TemplateBinding ContentTransitions}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Flyout.FlyoutPresenterStyle>
+                                    <CalendarView x:Name="CalendarView" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" FirstOfYearDecadeLabelFontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" MonthYearItemFontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" FirstOfMonthLabelFontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" DayItemFontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" CalendarIdentifier="PersianCalendar" DisplayMode="{TemplateBinding DisplayMode}" DayOfWeekFormat="{TemplateBinding DayOfWeekFormat}" FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}" IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}" IsOutOfScopeEnabled="{TemplateBinding IsOutOfScopeEnabled}" IsGroupLabelVisible="{TemplateBinding IsGroupLabelVisible}" MinDate="{TemplateBinding MinDate}" MaxDate="{TemplateBinding MaxDate}" Style="{TemplateBinding CalendarViewStyle}"/>
+                                </Flyout>
+                            </FlyoutBase.AttachedFlyout>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="32"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="32"/>
+                            </Grid.RowDefinitions>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background" Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CalendarDatePickerBorderBrushPointerOver}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CalendarDatePickerBackgroundPointerOver}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CalendarDatePickerBackgroundPressed}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background" Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CalendarDatePickerBorderBrushPressed}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CalendarDatePickerBackgroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background" Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CalendarDatePickerBorderBrushDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HeaderContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CalendarDatePickerHeaderForegroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DateText" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CalendarDatePickerTextForegroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CalendarGlyph" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CalendarDatePickerCalendarGlyphForegroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Unfocused"/>
+                                    <VisualState x:Name="PointerFocused"/>
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CalendarDatePickerBackgroundFocused}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected"/>
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DateText" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CalendarDatePickerTextForegroundSelected}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter x:Name="HeaderContentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" Margin="{ThemeResource ComboBoxHeaderThemeMargin}" TextWrapping="Wrap" Visibility="Collapsed" x:DeferLoadStrategy="Lazy"/>
+                            <Border x:Name="Background" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Grid.ColumnSpan="2" Control.IsTemplateFocusTarget="True" Grid.Row="1"/>
+                            <TextBlock x:Name="DateText" Foreground="{ThemeResource CalendarDatePickerTextForeground}" FontSize="15" HorizontalAlignment="Left" Padding="12, 0, 0, 2" Grid.Row="1" Text="{TemplateBinding PlaceholderText}" VerticalAlignment="Center"/>
+                            <FontIcon x:Name="CalendarGlyph" Grid.Column="1" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="{ThemeResource CalendarDatePickerCalendarGlyphForeground}" FontSize="16" Glyph="&#xE787;" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Image Source="ms-appx:///Assets/back.jpg" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+        <Grid Background="{ThemeResource LightWhite}">
+            <Grid x:Name="LoginPanel" Visibility="Visible" FlowDirection="RightToLeft" Padding="12">
+                <Grid FlowDirection="RightToLeft">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <controls:DropShadowPanel Margin="12" Padding="12" Grid.Column="0" Height="Auto" BlurRadius="10" ShadowOpacity="0.2" OffsetX="1" OffsetY="2" OffsetZ="5" Color="Black" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <Grid Height="Auto" Width="320" Padding="12" Background="White">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="128"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <!--<TextBlock Margin="12" Grid.Row="0" FontSize="14" TextAlignment="Center" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="ارسال پست جدید"/>-->
+                            <RichEditBox Margin="12" Grid.Row="1" x:Name="PostCaption" PlaceholderText="کپشن نمونه" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" BorderBrush="LightGray" />
+                            <Pivot Grid.Row="2" x:Name="FileTypePivot" Height="Auto" >
+                                <PivotItem Tag="Pic">
+                                    <PivotItem.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <FontIcon Margin="5" FontSize="21" FontFamily="Segoe MDL2 Assets" Glyph="&#xE8B9;"/>
+                                            <TextBlock Margin="5" Grid.Column="1" FontSize="14" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="تصویر"/>
+                                        </Grid>
+                                    </PivotItem.Header>
+                                    <Grid>
+                                        <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" StrokeDashCap="Round" StrokeDashArray="4" Stroke="LightGray" StrokeThickness="3" />
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <GridView x:Name="MediasforUploadList" Margin="12" Grid.Column="0" SelectionMode="None" IsItemClickEnabled="True" ItemClick="MediasforUploadList_ItemClick"/>
+                                            <Button x:Name="AddUploadFile" Margin="12" Grid.Column="1" Click="AddUploadFile_Click" Width="92" Height="92" VerticalAlignment="Center" Background="Transparent">
+                                                <SymbolIcon Symbol="Add" />
+                                            </Button>
+                                        </Grid>
+                                    </Grid>
+                                </PivotItem>
+                                <PivotItem Tag="Vid">
+                                    <PivotItem.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <FontIcon Margin="5" FontSize="21" FontFamily="Segoe MDL2 Assets" Glyph="&#xE714;"/>
+                                            <TextBlock Margin="5" Grid.Column="1" FontSize="14" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="ویدئو"/>
+                                        </Grid>
+                                    </PivotItem.Header>
+                                    <StackPanel FlowDirection="LeftToRight" Orientation="Vertical">
+                                        <MediaPlayerElement AreTransportControlsEnabled="True" x:Name="VideoPreview" Height="Auto" Width="Auto"/>
+                                        <Button x:Name="AddVideo" Click="AddVideo_Click" Margin="12" HorizontalAlignment="Stretch" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Content="انتخاب فایل ویدئو"/>
+                                    </StackPanel>
+                                </PivotItem>
+                            </Pivot>
+                            <TimePicker Margin="12" Grid.Row="3" x:Name="TPicker" Visibility="Collapsed" FontSize="10" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" HorizontalAlignment="Center"/>
+                            <CalendarDatePicker Margin="12" Grid.Row="4" Style="{StaticResource CalendarDatePickerPersian}" FontSize="8" Width="242" Visibility="Collapsed" CalendarIdentifier="PersianCalendar" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" x:Name="DPicker" PlaceholderText="انتخاب تاریخ" HorizontalAlignment="Center"/>
+                            <StackPanel Margin="12" Grid.Row="5" FlowDirection="LeftToRight" Orientation="Horizontal">
+                                <Button x:Name="UploadPostBtn" Click="UploadPostBtn_Click" ToolTipService.ToolTip="ارسال پست" ToolTipService.Placement="Bottom" Background="Transparent" HorizontalAlignment="Right" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)">
+                                    <FontIcon Margin="5" FontFamily="Segoe MDL2 Assets" Glyph="&#xEA63;"/>
+                                </Button>
+                                <Button x:Name="ClearBtn" Click="ClearBtn_Click" ToolTipService.ToolTip="پاک کردن" ToolTipService.Placement="Bottom" Background="Transparent" HorizontalAlignment="Right" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)">
+                                    <SymbolIcon Margin="5" Symbol="Delete" />
+                                </Button>
+                                <Button x:Name="ClockHideBtn" Click="ClockHideBtn_Click" ToolTipService.ToolTip="ارسال در آینده" ToolTipService.Placement="Bottom" HorizontalAlignment="Center" Background="Transparent" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Margin="5">
+                                    <SymbolIcon Margin="5" Symbol="Clock" />
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </controls:DropShadowPanel>
+                    <GridView Margin="12" Grid.Column="1" x:Name="UserMediasList" ItemClick="UserMedias_ItemClick" SelectionMode="None" IsItemClickEnabled="True" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                        <GridView.ItemTemplate>
+                            <DataTemplate x:DataType="mv:MediaViewModel">
+                                <Grid Margin="3" Width="234" Height="242">
+                                    <Image x:Name="MediaPicture" Source="{x:Bind Thumbnail}" Stretch="UniformToFill" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                                    <Rectangle Height="42" VerticalAlignment="Bottom" Fill="{ThemeResource MediaLabel}"/>
+                                    <Grid FlowDirection="LeftToRight" Height="42" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <FontIcon Margin="12" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontFamily="Segoe MDL2 Assets" Glyph="&#xEB51;"/>
+                                        <TextBlock Margin="0" Grid.Column="1" FontSize="12" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="{x:Bind LikesCount}" />
+                                        <FontIcon Margin="12" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontFamily="Segoe MDL2 Assets" Glyph="&#xE90A;"/>
+                                        <TextBlock Margin="0" Grid.Column="3" FontSize="12" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="{x:Bind CommentsCount}" />
+                                    </Grid>
+                                    <FontIcon FontSize="32" Visibility="{x:Bind IsVideo}" Margin="12" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontFamily="Segoe MDL2 Assets" Glyph="&#xE768;"/>
+                                    <FontIcon FontSize="32" Visibility="{x:Bind IsCarousel}" Margin="12" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontFamily="Segoe MDL2 Assets" Glyph="&#xE8B9;"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </Grid>
+            </Grid>
+            <Grid x:Name="ProgressPanel" Visibility="Collapsed" FlowDirection="LeftToRight" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ProgressRing Margin="5" Grid.Column="0" IsActive="True" Width="64" Height="64"/>
+                <TextBlock Margin="5" Grid.Column="1" x:Name="ProgressPanelText" Text="لطفا منتظر بمانید" VerticalAlignment="Center" TextAlignment="Center" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

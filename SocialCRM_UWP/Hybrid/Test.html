@@ -1,0 +1,163 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+
+        body {
+            position: relative;
+            font-family: "Helvetica Neue", sans-serif;
+            width: 960px;
+            margin: auto;
+            margin-bottom: 1em;
+            margin-top: 20px;
+        }
+
+        #presets a {
+            border-left: solid #666 1px;
+            padding: 0 10px;
+        }
+
+            #presets a.first {
+                border-left: none;
+            }
+
+        #keyword {
+            width: 300px;
+        }
+
+        #fetcher {
+            width: 500px;
+        }
+
+        #keyword, #go {
+            font-size: 1.5em;
+        }
+
+        #text {
+            width: 100%;
+            height: 100px;
+        }
+
+        p.copy {
+            font-size: small;
+        }
+
+        #form {
+            font-size: small;
+            position: relative;
+        }
+
+        hr {
+            border: none;
+            border-bottom: solid #ccc 1px;
+        }
+
+        a.active {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            cursor: text;
+        }
+
+        #angles line, #angles path, #angles circle {
+            stroke: #666;
+        }
+
+        #angles text {
+            fill: #333;
+        }
+
+        #angles path.drag {
+            fill: #666;
+            cursor: move;
+        }
+
+        #angles {
+            text-align: center;
+            margin: 0 auto;
+            width: 350px;
+        }
+
+            #angles input, #max {
+                width: 42px;
+            }
+    </style>
+    <script src="https://pagead2.googlesyndication.com/pagead/js/r20180801/r20180604/osd.js"></script>
+    <script src="https://pagead2.googlesyndication.com/pub-config/r20160913/ca-pub-2911491153890039.js"></script>
+    <script src="https://ssl.google-analytics.com/ga.js" type="text/javascript" async=""></script>
+    <link href="https://adservice.google.com/adsid/integrator.js?domain=www.jasondavies.com" rel="preload" as="script">
+    <script src="https://adservice.google.com/adsid/integrator.js?domain=www.jasondavies.com" type="text/javascript"></script>
+</head>
+<body>
+    <div id="vis"></div>
+    <form style="display:none;" id="form">
+        <p id="status" style="top: 0px; right: 0px; display: none; position: absolute;">202/202</p>
+        <div style="text-align: center;display:none;">
+            <div id="presets"></div>
+            <div id="custom-area">
+                <p>
+                    <label for="text">Paste your text below!</label>
+                </p>
+                <p>
+                    <textarea id="text"></textarea>
+                    <button id="go" type="submit">Go!</button>
+                </p>
+            </div>
+        </div>
+        <div style="float: right; text-align: right;display:none">
+            <p>
+                <label for="max">Number of words:</label> <input id="max" type="number" min="1" value="500">
+            </p><p>
+                <label for="per-line"><input id="per-line" type="checkbox"> One word per line</label>
+                <!--<p><label for="colours">Colours:</label> <a href="#" id="random-palette">get random palette</a>-->
+            </p>
+            <p>
+                <label>Download:</label>
+                <button id="download-svg">SVG</button>
+                <!-- |
+                <a id="download-png" href="#">PNG</a>-->
+            </p>
+        </div>
+        <div style="float: left;display:none;">
+            <p>
+                <label>Spiral:</label>
+                <label for="archimedean"><input name="spiral" id="archimedean" type="radio" value="archimedean"> Archimedean</label>
+                <label for="rectangular"><input name="spiral" id="rectangular" type="radio" checked="checked" value="rectangular"> Rectangular</label>
+            </p><p>
+                <label for="scale">Scale:</label>
+                <label for="scale-log"><input name="scale" id="scale-log" type="radio" checked="checked" value="log"> log n</label>
+                <label for="scale-sqrt"><input name="scale" id="scale-sqrt" type="radio" value="sqrt"> √n</label>
+                <label for="scale-linear"><input name="scale" id="scale-linear" type="radio" value="linear"> n</label>
+            </p><p>
+                <label for="font">Font:</label> <input id="font" type="text" value="Impact">
+            </p>
+        </div>
+        <div id="angles" style="display:none;">
+            <p>
+                <input id="angle-count" type="number" min="1" value="1"> <label for="angle-count">orientations</label>
+                <label for="angle-from">from</label> <input id="angle-from" type="number" min="-90" max="90" value="0"> °
+                <label for="angle-to">to</label> <input id="angle-to" type="number" min="-90" max="90" value="0"> °
+            </p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="151" height="70.5"><g transform="translate(75.5 60.5)"><path style="fill: none;" d="M -40.5 0 A 40.5 40.5 0 0 1 40.5 0" /><line x1="-47.5" x2="47.5" /><line y2="-47.5" /><text text-anchor="end" transform="rotate(0) translate(-50.5) rotate(0) translate(2)" dy="0.3em">-90°</text><text text-anchor="middle" transform="rotate(90) translate(-50.5) rotate(-90) translate(2)">0°</text><text text-anchor="start" transform="rotate(180) translate(-50.5) rotate(-180) translate(2)" dy="0.3em">90°</text><path class="angle" style="fill: #fc0;" d="M -35.074 -20.25 A 40.5 40.5 0 0 1 35.074 -20.25 L 0 0 Z" /><line class="angle" transform="rotate(30)" x2="-45.5" /><line class="angle" transform="rotate(60)" x2="-40.5" /><line class="angle" transform="rotate(90)" x2="-40.5" /><line class="angle" transform="rotate(120)" x2="-40.5" /><line class="angle" transform="rotate(150)" x2="-45.5" /><path class="drag" transform="rotate(30) translate(-40.5)" d="M -9.5 0 L -3 3.5 L -3 -3.5 Z" /><path class="drag" transform="rotate(150) translate(-40.5)" d="M -9.5 0 L -3 3.5 L -3 -3.5 Z" /></g></svg>
+        </div>
+    </form>
+    <script src="https://www.jasondavies.com/d3.min.js"></script>
+    <script src="https://www.jasondavies.com/wordcloud/cloud.min.js"></script>
+    <form action="https://www.jasondavies.com/echo" method="POST" target="_blank">
+        <input name="content-type" type="hidden">
+        <input name="echo" type="hidden">
+    </form>
+    <script>
+        function eventFire(el, etype) {
+            if (el.fireEvent) {
+                el.fireEvent('on' + etype);
+            } else {
+                var evObj = document.createEvent('Events');
+                evObj.initEvent(etype, true, false);
+                el.dispatchEvent(evObj);
+            }
+        }
+    </script>
+</body>
+</html>

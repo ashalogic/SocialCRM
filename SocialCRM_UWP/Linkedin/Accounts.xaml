@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="SocialCRM_UWP.Linkedin.Accounts"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SocialCRM_UWP.Linkedin"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid FlowDirection="LeftToRight" Width="512" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" FlowDirection="RightToLeft" HorizontalAlignment="Center" VerticalAlignment="Center" Width="256">
+            <PathIcon HorizontalAlignment="Center" FlowDirection="LeftToRight" Foreground="#0077B5" Data="M81.7880020141602,81.8079986572266L67.5719985961914,81.8079986572266 67.5719985961914,59.5320014953613 67.4410629272461,55.3928756713867 66.6054992675781,51.4659996032715 65.7159423828125,49.827075958252 64.4011840820313,48.5351257324219 62.5782127380371,47.6881065368652 60.1640014648438,47.3839988708496 57.6688194274902,47.6440315246582 55.7020606994629,48.380500793457 54.2033996582031,49.5279693603516 53.1124992370605,51.0209999084473 51.9126853942871,54.7820014953613 51.6199989318848,59.1399993896484 51.6199989318848,81.8079986572266 37.4039993286133,81.8079986572266 37.4039993286133,36 51.060001373291,36 51.060001373291,42.2439994812012 51.2439994812012,42.2439994812012 53.1803741455078,39.5690002441406 56.0999984741211,37.1940002441406 59.9616241455078,35.4940032958984 64.7239990234375,34.8440017700195 69.5929107666016,35.275447845459 73.4675598144531,36.5180625915527 76.4542999267578,38.4942741394043 78.6595001220703,41.1265029907227 80.1895065307617,44.3371658325195 81.1506881713867,48.0486907958984 81.6493988037109,52.1834945678711 81.7919998168945,56.6640014648438 81.7919998168945,81.8079986572266 81.7880020141602,81.8079986572266z M21.3479995727539,29.7320003509521L18.1281242370605,29.0820636749268 15.5059995651245,27.3105010986328 13.7418746948242,24.6846866607666 13.0959997177124,21.4720001220703 13.7424373626709,18.2622509002686 15.5074996948242,15.6389999389648 18.1298122406006,13.8692502975464 21.3479995727539,13.2200002670288 24.5617504119873,13.8692502975464 27.1860008239746,15.6389999389648 28.955249786377,18.2622509002686 29.6040000915527,21.4720001220703 28.9546871185303,24.6846866607666 27.1844997406006,27.3105010986328 24.5600624084473,29.0820636749268 21.3479995727539,29.7320003509521z M28.4759998321533,81.8079986572266L14.2200002670288,81.8079986572266 14.2200002670288,36 28.4759998321533,36 28.4759998321533,81.8079986572266z M88.9000015258789,0L7.08400011062622,0 4.32506275177002,0.543437480926514 2.07349991798401,2.02550005912781 0.556187510490417,4.22381258010864 0,6.91599988937378 0,89.0839996337891 0.556187510490417,91.7778701782227 2.07349991798401,93.9759979248047 4.32506275177002,95.4571228027344 7.08400011062622,96 88.8880004882813,96 91.6496276855469,95.4571228027344 93.911003112793,93.9759979248047 95.4388732910156,91.7778701782227 96,89.0839996337891 96,6.91599988937378 95.4388732910156,4.22381258010864 93.911003112793,2.02550005912781 91.6496276855469,0.543437480926514 88.8880004882813,0 88.9000015258789,0z"/>
+            <TextBox TextAlignment="DetectFromContent" HorizontalAlignment="Stretch" Margin="12" Header="نام کاربری" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" />
+            <PasswordBox HorizontalAlignment="Stretch" Margin="12" Header="کلمه عبور" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+            <Button Margin="12" Padding="5" HorizontalAlignment="Stretch" Content="ورود به حساب لینکدین" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <ListViewHeaderItem FlowDirection="RightToLeft">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Margin="5" Symbol="List"/>
+                    <TextBlock Margin="5" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" FontSize="16" Text="لیست حساب های متصل"/>
+                </StackPanel>
+            </ListViewHeaderItem>
+            <ListView SelectionMode="None" IsItemClickEnabled="True" Margin="12">
+                <ListView.Items>
+                    <StackPanel Margin="5" Orientation="Horizontal">
+                        <PersonPicture Margin="5" Width="32" Height="32"/>
+                        <TextBlock Margin="5" Text="@iiec2018"/>
+                    </StackPanel>
+                    <StackPanel Margin="5" Orientation="Horizontal">
+                        <PersonPicture Margin="5" Width="32" Height="32"/>
+                        <TextBlock Margin="5" Text="@etio0098"/>
+                    </StackPanel>
+                </ListView.Items>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>

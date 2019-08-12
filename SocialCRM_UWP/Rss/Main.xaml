@@ -1,0 +1,95 @@
+﻿<Page
+    x:Class="SocialCRM_UWP.Rss.Main"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SocialCRM_UWP.Rss"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:mv="using:SocialCRM_UWP.Rss.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button VerticalAlignment="Top" Click="Button_Click">Hello</Button>
+        <Button VerticalAlignment="Bottom" Click="Button_Click_1">Hello2</Button>
+        <RichEditBox x:Name="texttoset" VerticalAlignment="Center"/>
+
+        <WebView x:Name="webView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="64" Source="ms-appx-web:///Hybrid/test.html"/>
+
+        <Grid Visibility="Collapsed" Background="#e3e3e3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240px"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListView ItemClick="ListView_ItemClick" Background="{ThemeResource SideLightWhite}" Padding="0,32,5,5" IsItemClickEnabled="True" IsSwipeEnabled="False" CanDragItems="False" SelectionMode="Single" >
+                <ListView.Items>
+                    <TextBlock Tag="All" Text="همه" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                    <TextBlock Tag="tasnimnews" Text="تسنیم" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                    <!--<TextBlock Tag="farsnews" Text="فارس" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>-->
+                    <TextBlock Tag="mehrnews" Text="مهر" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                    <TextBlock Tag="isna" Text="ایسنا" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                    <!--<TextBlock Tag="irna" Text="ایرنا" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>-->
+                    <TextBlock Tag="aftabnews" Text="آفتاب" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                    <TextBlock Tag="khabaronline" Text="خبر آنلاین" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                    <TextBlock Tag="mashreghnews" Text="مشرق" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                    <TextBlock Tag="tabnak" Text="تابناک" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                    <!--<TextBlock Tag="yjc" Text="باشگاه پژوهشگران جوان" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>-->
+                </ListView.Items>
+            </ListView>
+
+            <Grid FlowDirection="LeftToRight" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="11"/>
+                    <ColumnDefinition Width="320"/>
+                </Grid.ColumnDefinitions>
+
+                <GridView FlowDirection="RightToLeft" Grid.Column="2" ItemClick="RSSList_ItemClick" x:Name="RSSList" Padding="0,32,5,5" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" SelectionMode="Single" IsItemClickEnabled="True">
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <controls:StaggeredPanel Padding="0" />
+                            <!--<VariableSizedWrapGrid />-->
+                            <!--<api:CustomPanel/>-->
+                            <!--<VariableSizedWrapGrid Margin="5" Height="Auto" Width="400"/>-->
+                            <!--<controls:WrapPanel Orientation="Horizontal"  />-->
+                            <!--<ItemsWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal" />-->
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="mv:RSSViewModel">
+                            <StackPanel Height="Auto" Width="Auto" Background="#fff" Margin="5" Padding="5" Orientation="Vertical">
+                                <Grid>
+                                    <!--<Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Grid.Column="0" Margin="5" Symbol="Edit"/>-->
+                                    <TextBlock Grid.Column="1" Margin="5" FontSize="14" TextWrapping="WrapWholeWords" Text="{x:Bind Title}" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                                </Grid>
+                                <Line Margin="5" Stroke="LightGray" StrokeThickness="1" X2="400" HorizontalAlignment="Stretch"/>
+                                <TextBlock Margin="5" FontSize="12" TextWrapping="WrapWholeWords" Text="{x:Bind Summary}" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                                <Line Margin="5" Stroke="LightGray" StrokeThickness="1" X2="400" HorizontalAlignment="Stretch"/>
+                                <TextBlock Margin="5" TextAlignment="Center" FontSize="10" Text="{x:Bind Date}" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+
+                <controls:GridSplitter Grid.Column="1" Width="11" ResizeBehavior="BasedOnAlignment" ResizeDirection="Columns" Background="Gray" Foreground="White" FontSize="13">
+                    <controls:GridSplitter.Element>
+                        <Grid>
+                            <TextBlock HorizontalAlignment="Center"  IsHitTestVisible="False"
+                    VerticalAlignment="Center" Text="&#xE784;"
+                    Foreground="Black" FontFamily="Segoe MDL2 Assets"/>
+                        </Grid>
+                    </controls:GridSplitter.Element>
+                </controls:GridSplitter>
+
+                <WebView Grid.Column="0" Margin="0,32,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" x:Name="website" />
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>

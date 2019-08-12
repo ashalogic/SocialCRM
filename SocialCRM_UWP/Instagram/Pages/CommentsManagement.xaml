@@ -1,0 +1,99 @@
+﻿<Page
+    x:Class="SocialCRM_UWP.Instagram.Pages.CommentsManagement"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SocialCRM_UWP.Instagram.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mv="using:SocialCRM_UWP.Instagram.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid FlowDirection="RightToLeft" Background="#f2f2f2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <GridView HorizontalAlignment="Center" x:Name="CommentsManagementBList" Header="کامنت های مشکوک   " Grid.Column="0">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="mv:CommentViewModel">
+                    <StackPanel Height="Auto" Width="Auto" Background="#f9f9f9" Margin="5" Orientation="Vertical">
+                        <Grid FlowDirection="RightToLeft">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <PersonPicture ProfilePicture="{x:Bind ProfilePic}" Margin="5" Width="32" Height="32"/>
+                            <TextBlock Text="{x:Bind UserName}" Grid.Column="1" VerticalAlignment="Center" TextAlignment="Center"/>
+                            <Grid MinWidth="42" Padding="5" Grid.Column="2" HorizontalAlignment="Right">
+                                <FontIcon Foreground="#E4405F" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Glyph="&#xEB51;"/>
+                                <TextBlock Foreground="Gray" Margin="0,0,24,0" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="{x:Bind LikesCount}" />
+                            </Grid>
+                        </Grid>
+                        <Line Margin="5" Stroke="LightGray" StrokeThickness="1" X2="400" HorizontalAlignment="Stretch"/>
+                        <TextBlock FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Margin="5" FontSize="12" TextWrapping="WrapWholeWords" Text="{x:Bind Text}"/>
+                        <RichEditBox FontSize="12" Height="0" BorderThickness="1" Margin="5,0,5,0" BorderBrush="LightGray" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" TextAlignment="Left" PlaceholderText="پاسخ"/>
+                        <FontIcon Foreground="Gray" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Margin="12" Glyph="&#xEE35;"/>
+                        <!--<Button Margin="0,5,5,5" Background="LightGray" HorizontalAlignment="Right" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" FontSize="12" Content="ارسال"/>-->
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        <GridView HorizontalAlignment="Center" x:Name="CommentsManagementRList" Header="کامنت های عادی" Grid.Column="1">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="mv:CommentViewModel">
+                    <StackPanel Height="Auto" Width="Auto" Background="#f9f9f9" Margin="5" Orientation="Vertical">
+                        <Grid FlowDirection="RightToLeft">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <PersonPicture ProfilePicture="{x:Bind ProfilePic}" Margin="5" Width="32" Height="32"/>
+                            <TextBlock Text="{x:Bind UserName}" Grid.Column="1" VerticalAlignment="Center" TextAlignment="Center"/>
+                            <Grid MinWidth="42" Padding="5" Grid.Column="2" HorizontalAlignment="Right">
+                                <FontIcon Foreground="#E4405F" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Glyph="&#xEB51;"/>
+                                <TextBlock Foreground="Gray" Margin="0,0,24,0" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="{x:Bind LikesCount}" />
+                            </Grid>
+                        </Grid>
+                        <Line Margin="5" Stroke="LightGray" StrokeThickness="1" X2="400" HorizontalAlignment="Stretch"/>
+                        <TextBlock FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Margin="5" FontSize="12" TextWrapping="WrapWholeWords" Text="{x:Bind Text}"/>
+                        <RichEditBox FontSize="12" Height="0" BorderThickness="1" Margin="5,0,5,0" BorderBrush="LightGray" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" TextAlignment="Left" PlaceholderText="پاسخ"/>
+                        <FontIcon Foreground="Gray" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Margin="12" Glyph="&#xEE35;"/>
+                        <!--<Button Margin="0,5,5,5" Background="LightGray" HorizontalAlignment="Right" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" FontSize="12" Content="ارسال"/>-->
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        <GridView HorizontalAlignment="Center" x:Name="CommentsManagementQList" Header="کامنت های سوالی" Grid.Column="2">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="mv:CommentViewModel">
+                    <StackPanel Height="Auto" Width="Auto" Background="#f9f9f9" Margin="5" Orientation="Vertical">
+                        <Grid FlowDirection="RightToLeft">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <PersonPicture ProfilePicture="{x:Bind ProfilePic}" Margin="5" Width="32" Height="32"/>
+                            <TextBlock Text="{x:Bind UserName}" Grid.Column="1" VerticalAlignment="Center" TextAlignment="Center"/>
+                            <Grid MinWidth="42" Padding="5" Grid.Column="2" HorizontalAlignment="Right">
+                                <FontIcon Foreground="#E4405F" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Glyph="&#xEB51;"/>
+                                <TextBlock Foreground="Gray" Margin="0,0,24,0" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Text="{x:Bind LikesCount}" />
+                            </Grid>
+                        </Grid>
+                        <Line Margin="5" Stroke="LightGray" StrokeThickness="1" X2="400" HorizontalAlignment="Stretch"/>
+                        <TextBlock FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" Margin="5" FontSize="12" TextWrapping="WrapWholeWords" Text="{x:Bind Text}"/>
+                        <RichEditBox FontSize="12" Height="0" BorderThickness="1" Margin="5,0,5,0" BorderBrush="LightGray" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" TextAlignment="Left" PlaceholderText="پاسخ"/>
+                        <FontIcon Foreground="Gray" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Margin="12" Glyph="&#xEE35;"/>
+                        <!--<Button Margin="0,5,5,5" Background="LightGray" HorizontalAlignment="Right" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" FontSize="12" Content="ارسال"/>-->
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        <ProgressRing Grid.Column="1" x:Name="CommentsManagementPRing" Width="128" Height="128"/>
+    </Grid>
+</Page>

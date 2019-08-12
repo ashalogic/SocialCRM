@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="SocialCRM_UWP.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SocialCRM_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid FlowDirection="LeftToRight" Visibility="Visible" Width="512" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" x:Name="loginPanel" FlowDirection="RightToLeft" HorizontalAlignment="Center" VerticalAlignment="Center" Width="256">
+            <FontIcon FontSize="72" FontFamily="Segoe MDL2 Assets" Glyph="&#xE72E;"/>
+            <!--<BitmapIcon Width="Auto" Height="Auto" Foreground="Black" UriSource="http://socialmind.ir/img/logo.png" />-->
+            <TextBox x:Name="usernameBox" TextAlignment="DetectFromContent" HorizontalAlignment="Stretch" Margin="12" Header="نام کاربری" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" />
+            <PasswordBox x:Name="passwordBox" HorizontalAlignment="Stretch" Margin="12" Header="کلمه عبور" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+            <Button x:Name="loginBtn" Margin="12" Padding="5" HorizontalAlignment="Stretch" Content="دریافت توکن" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)"/>
+            <RichEditBox TextWrapping="Wrap" IsReadOnly="True" Height="92" HorizontalAlignment="Stretch" Margin="5" Foreground="Red" x:Name="loginErr"/>
+        </StackPanel>
+        <!--<StackPanel Grid.Column="1" x:Name="loginsListPanel" VerticalAlignment="Top">
+            <ListViewHeaderItem FlowDirection="RightToLeft">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Margin="5" Symbol="List"/>
+                    <TextBlock Margin="5" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" FontSize="16" Text="لیست حساب های متصل"/>
+                </StackPanel>
+            </ListViewHeaderItem>
+            <ListView x:Name="loginsList" SelectionMode="None" IsItemClickEnabled="True" Margin="12">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:AccountViewModel">
+                        <StackPanel Margin="5" Orientation="Horizontal">
+                            <PersonPicture ProfilePicture="{x:Bind Profilepicture}" Margin="5" Width="32" Height="32"/>
+                            <TextBlock Margin="5" Text="{x:Bind Username}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>-->
+        <ProgressRing Grid.Column="0" x:Name="loginPRing" Width="128" Height="128" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <ProgressRing Grid.Column="1"  x:Name="loginsListPRing" Width="128" Height="128" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </Grid>
+</Page>

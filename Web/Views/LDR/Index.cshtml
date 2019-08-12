@@ -1,0 +1,232 @@
+﻿<div class="container h-100" ng-app="myApp" ng-controller="myCtrl">
+
+    <div class="alert alert-danger alert-dismissible fade show IRANSans text-center" role="alert" ng-show="dangermsgvisibility">
+        {{dangermsg}}
+        <button type="button" class="close" ng-click="hidedangermsg()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="alert alert-success alert-dismissible fade show IRANSans text-center" role="alert" ng-show="successmsgvisibility">
+        {{successmsg}}
+        <button type="button" class="close" ng-click="hidesuccessmsg()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col">
+            <div class="row">
+                <div class="col-8" ng-show="MgList">
+                    <div class="row">
+                        <div class="col m-1">
+                            <input dir="rtl" ng-model="form_uname" class="form-control text-center IRANSans" placeholder="نام کاربری">
+                        </div>
+                        <div class="col m-1">
+                            <input dir="rtl" ng-model="form_cname" class="form-control text-center IRANSans" placeholder="نام شرکت">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col m-1">
+                            <input dir="rtl" ng-model="form_email" class="form-control text-center IRANSans" placeholder="رایانامه">
+                        </div>
+                        <div class="col m-1">
+                            <input dir="rtl" ng-model="form_pword" class="form-control text-center IRANSans" placeholder="گذرواژه">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col m-1">
+                            <input type="number" ng-model="form_alimit" dir="rtl" class="form-control text-center IRANSans" placeholder="محدودیت حساب">
+                        </div>
+                        <div class="col m-1">
+                            <input dir="rtl" ng-model="form_pnumber" class="form-control text-center IRANSans" placeholder="شماره تماس">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col m-1">
+                            <button type="submit" class="btn btn-success btn-block IRANSans" ng-click="add()">افزودن</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 bg-white shadow-sm rounded mx-auto">
+                    <form class="m-4">
+                        <div class="align-self-center justify-content-center text-center">
+                            <i class="fas fa-user-circle fa-6x"></i>
+                            <div class="form-group">
+                                <label class="float-right IRANSans">نام کاربری</label>
+                                <input ng-model="uname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <label class="float-right IRANSans">کلمه عبور</label>
+                                <input type="password" ng-model="pname" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-danger btn-block IRANSans" ng-click="login()">ورود</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr ng-show="MgList" />
+            <div class="row">
+                <div style="font-size:12px" ng-show="MgList" class="col-12 mx-auto">
+                    <table dir="rtl" class="table table-hover table-striped IRANSans text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">نام کاربری</th>
+                                <th scope="col">شرکت</th>
+                                <th scope="col">رایانامه</th>
+                                <th scope="col">شماره تماس</th>
+                                <th scope="col">حساب</th>
+                                <th scope="col">ظرفیت</th>
+                                <th scope="col">تاریخ</th>
+                                <th scope="col">عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in userslist">
+                                <th scope="row">{{$index+1}}</th>
+                                <td>{{x.username}}</td>
+                                <td>{{x.companyname}}</td>
+                                <td>{{x.email}}</td>
+                                <td>{{x.phonenumber}}</td>
+                                <td>{{x.accountcount}}</td>
+                                <td>{{x.accountlimit}}</td>
+                                <td>{{x.date}}</td>
+                                <td>
+                                    <a ng-hide="x.blocked" style="cursor:pointer" ng-click="blockuser(x.username)">
+                                        <i class="fas fa-ban" style="color:red"></i>
+                                    </a>
+                                    <a ng-show="x.blocked" style="cursor:pointer" ng-click="unblockuser(x.username)">
+                                        <i class="fas fa-lock-open" style="color:green"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $http) {
+
+        $scope.BaseURL = "http://soicalcrm.ir/";
+        //$scope.BaseURL = "http://localhost:58810/";
+
+        $scope.hidedangermsg = function () {
+            $scope.dangermsgvisibility = false;
+        }
+        $scope.hidesuccessmsg = function () {
+            $scope.successmsgvisibility = false;
+        }
+
+        $scope.blockuser = function ($utoblock) {
+            $http.defaults.headers.common['Authorization'] = 'Bearer ' + sessionStorage.getItem('Token');
+            var param = {
+                username: $utoblock
+            };
+            $http({
+                data: param,
+                method: "POST",
+                url: $scope.BaseURL + "api/admin/BlockUser"
+            }).then(function mySuccess(response) {
+                $scope.successmsgvisibility = true;
+                sessionStorage.setItem('Token', response.data.access_token);
+                $scope.successmsg = "کاربر با موفقیت بلاک شد";
+                $http.defaults.headers.common['Authorization'] = 'Bearer ' + sessionStorage.getItem('Token');
+                $scope.loadusers();
+            }, function myError(response) {
+                $scope.dangermsgvisibility = true;
+                $scope.dangermsg = "خطا در بلاک کاربر";
+            });
+        };
+
+        $scope.unblockuser = function ($utoblock) {
+            $http.defaults.headers.common['Authorization'] = 'Bearer ' + sessionStorage.getItem('Token');
+            var param = {
+                username: $utoblock
+            };
+            $http({
+                data: param,
+                method: "POST",
+                url: $scope.BaseURL + "api/admin/UnBlockUser"
+            }).then(function mySuccess(response) {
+                $scope.successmsgvisibility = true;
+                sessionStorage.setItem('Token', response.data.access_token);
+                $scope.successmsg = "کاربر با موفقیت آنبلاک شد";
+                $http.defaults.headers.common['Authorization'] = 'Bearer ' + sessionStorage.getItem('Token');
+                $scope.loadusers();
+            }, function myError(response) {
+                $scope.dangermsgvisibility = true;
+                $scope.dangermsg = "خطا در آنبلاک کاربر";
+            });
+        };
+
+        $scope.add = function () {
+            $http.defaults.headers.common['Authorization'] = 'Bearer ' + sessionStorage.getItem('Token');
+            var param = {
+                phonenumber: $scope.form_pnumber,
+                companyname: $scope.form_cname,
+                username: $scope.form_uname,
+                email: $scope.form_email,
+                password: $scope.form_pword,
+                accountlimit: $scope.form_alimit
+            };
+            $http({
+                data: param,
+                method: "POST",
+                url: $scope.BaseURL + "api/admin/RegisterUser"
+            }).then(function mySuccess(response) {
+                $scope.successmsgvisibility = true;
+                $scope.successmsg = "کاربر با موفقیت افزوده شد";
+                $scope.loadusers();
+            }, function myError(response) {
+                $scope.dangermsgvisibility = true;
+                $scope.dangermsg = "خطا در ایجاد کاربر " + response.data.ExceptionMessage;
+            });
+        };
+
+        $scope.loadusers = function () {
+            $http.defaults.headers.common['Authorization'] = 'Bearer ' + sessionStorage.getItem('Token');
+            $http({
+                method: "POST",
+                url: $scope.BaseURL + "api/admin/usersList"
+            }).then(function mySuccess(response) {
+                $scope.successmsgvisibility = true;
+                $scope.userslist = response.data.users;
+                $scope.successmsg = "لیست کاربران به روز شد";
+                $scope.MgList = true;
+            }, function myError(response) {
+                $scope.dangermsgvisibility = true;
+                $scope.dangermsg = "خطا در به روز رسانی لیست کاربران " + response;
+            });
+        };
+
+        $scope.login = function () {
+            $scope.successmsgvisibility = false;
+            $scope.dangermsgvisibility = false;
+            var param = $.param({
+                grant_type: "password",
+                username: $scope.uname,
+                password: $scope.pname
+            });
+            $http({
+                data: param,
+                method: "POST",
+                url: $scope.BaseURL + "token"
+            }).then(function mySuccess(response) {
+                sessionStorage.setItem('Token', response.data.access_token);
+                $scope.successmsg = "ورود با موفقیت انجام شد";
+                $scope.successmsgvisibility = true;
+                $scope.loadusers();
+            }, function myError(response) {
+                $scope.dangermsg = "خطا در ورود به سامانه " + response.data;
+                $scope.dangermsgvisibility = true;
+            });
+        };
+    });
+</script>
