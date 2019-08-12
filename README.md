@@ -7,7 +7,14 @@ It's private project for managing SocialNetworks
 
 ## UWP
 Universal Windows Platform version of SCRM 
+
+### Login Page
 ![](https://github.com/ashalogic/SocialCRM/blob/master/docs/img/scrm.WebP)
+### Direct Page
+![](https://github.com/ashalogic/SocialCRM/blob/master/docs/img/chat.WebP)
+### Lottery Page
+![](https://github.com/ashalogic/SocialCRM/blob/master/docs/img/lottery.WebP)
+
 
 ## WEB
 Server Sys for managing user credentials 
