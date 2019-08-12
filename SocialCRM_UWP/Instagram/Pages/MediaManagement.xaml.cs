@@ -313,7 +313,7 @@ namespace SocialCRM_UWP.Instagram.Pages
                         dic.Add("data", Convert.ToBase64String(ToByteArray(imagePostViewModel)));
                         dic.Add("date", (new DateTime(DPicker.Date.Value.Year, DPicker.Date.Value.Month, DPicker.Date.Value.Day, TPicker.Time.Hours, TPicker.Time.Minutes, TPicker.Time.Seconds)).ToBinary().ToString());
 
-                        var WResult = await WebApi.Post("http://socialcrm.ir/api/uwp/Add_Post", new HttpFormUrlEncodedContent(dic), new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
+                        var WResult = await WebApi.Post(WebApi.WebApiURL + "api/uwp/Add_Post", new HttpFormUrlEncodedContent(dic), new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
                         if (WResult.IsSuccessStatusCode)
                         {
                             await Helper.ShowMessage("پست به صف افزوده شد", "پست به صف افزوده شد");
@@ -341,7 +341,7 @@ namespace SocialCRM_UWP.Instagram.Pages
                         dic.Add("data", Convert.ToBase64String(ToByteArray(imagePostViewModel)));
                         dic.Add("date", (new DateTime(DPicker.Date.Value.Year, DPicker.Date.Value.Month, DPicker.Date.Value.Day, TPicker.Time.Hours, TPicker.Time.Minutes, TPicker.Time.Seconds)).ToBinary().ToString());
 
-                        var WResult = await WebApi.Post("http://socialcrm.ir/api/uwp/Add_Post", new HttpFormUrlEncodedContent(dic), new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
+                        var WResult = await WebApi.Post(WebApi.WebApiURL + "api/uwp/Add_Post", new HttpFormUrlEncodedContent(dic), new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
                         if (WResult.IsSuccessStatusCode)
                         {
                             await Helper.ShowMessage("پست به صف افزوده شد", "پست به صف افزوده شد");
@@ -423,7 +423,7 @@ namespace SocialCRM_UWP.Instagram.Pages
                         dic.Add("data", Convert.ToBase64String(ToByteArray(videoPostViewModel)));
                         dic.Add("date", (new DateTime(DPicker.Date.Value.Year, DPicker.Date.Value.Month, DPicker.Date.Value.Day, TPicker.Time.Hours, TPicker.Time.Minutes, TPicker.Time.Seconds)).ToBinary().ToString());
 
-                        var WResult = await WebApi.Post("http://socialcrm.ir/api/uwp/Add_Post", new HttpFormUrlEncodedContent(dic), new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
+                        var WResult = await WebApi.Post(WebApi.WebApiURL + "api/uwp/Add_Post", new HttpFormUrlEncodedContent(dic), new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
                         if (WResult.IsSuccessStatusCode)
                         {
                             await Helper.ShowMessage("پست به صف افزوده شد", "پست به صف افزوده شد");

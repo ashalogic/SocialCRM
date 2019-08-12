@@ -10,6 +10,8 @@ namespace SocialCRM_UWP
 {
     public static class WebApi
     {
+        public static string WebApiURL = "http://localhost:58810/";
+
         private static IPropertySet localProperties = ApplicationData.Current.LocalSettings.Values;
 
         public static string Token
@@ -91,7 +93,7 @@ namespace SocialCRM_UWP
             if (Token != null && Username != null && Password != null)
             {
                 //Test Token
-                var checktoken = await Post("http://socialcrm.ir/api/uwp/Echo", null, new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Bearer", Token));
+                var checktoken = await Post(WebApiURL + "api/uwp/Echo", null, new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Bearer", Token));
                 if (checktoken.IsSuccessStatusCode)
                 {
                     return true;
@@ -115,7 +117,7 @@ namespace SocialCRM_UWP
                 { "username", uname },
                 { "password", pword }
             };
-            var Result = await Post("http://socialcrm.ir/Token", new HttpFormUrlEncodedContent(Dic));
+            var Result = await Post(WebApiURL + "Token", new HttpFormUrlEncodedContent(Dic));
             if (Result.IsSuccessStatusCode)
             {
 

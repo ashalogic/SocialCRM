@@ -134,7 +134,7 @@ namespace SocialCRM_UWP.Instagram.Pages
             {
                 Dictionary<string, string> dic = new Dictionary<string, string>();
                 dic.Add("accountusername", Api.Username);
-                var WResult = await WebApi.Post("http://socialcrm.ir/api/uwp/Posts_List", new HttpFormUrlEncodedContent(dic), new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
+                var WResult = await WebApi.Post(WebApi.WebApiURL + "api/uwp/Posts_List", new HttpFormUrlEncodedContent(dic), new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
                 if (WResult.IsSuccessStatusCode)
                 {
                     var DataResult = JsonConvert.DeserializeObject<IEnumerable<SPostViewModel>>(WResult.Content.ToString());
@@ -273,7 +273,7 @@ namespace SocialCRM_UWP.Instagram.Pages
                     dic.Add("spid", removeid);
                     dic.Add("acname", Api.Username);
 
-                    var WResult = await WebApi.Post("http://socialcrm.ir/api/uwp/Remove_Post", new HttpFormUrlEncodedContent(dic), new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
+                    var WResult = await WebApi.Post(WebApi.WebApiURL + "api/uwp/Remove_Post", new HttpFormUrlEncodedContent(dic), new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
 
                     if (WResult.IsSuccessStatusCode)
                     {

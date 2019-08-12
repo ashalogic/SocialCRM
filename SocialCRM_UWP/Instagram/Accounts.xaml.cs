@@ -56,7 +56,7 @@ namespace SocialCRM_UWP.Instagram
                         dic.Add("username", usernameBox.Text);
                         dic.Add("data", Convert.ToBase64String((StateData as MemoryStream).ToArray()));
 
-                        var WResult = await WebApi.Post("http://socialcrm.ir/api/uwp/Add_Account", new HttpFormUrlEncodedContent(dic), new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
+                        var WResult = await WebApi.Post(WebApi.WebApiURL + "api/uwp/Add_Account", new HttpFormUrlEncodedContent(dic), new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
                         if (WResult.IsSuccessStatusCode)
                         {
                             await Helper.ShowMessage("حساب با موفقیت افزوده شد", "حساب موردنظر با موفقیت افزوده شد برای ورود روی آن کلیک کنید");
@@ -130,7 +130,7 @@ namespace SocialCRM_UWP.Instagram
                 loginsList.Items.Clear();
                 if (await WebApi.Check())
                 {
-                    var Result = await WebApi.Post("http://socialcrm.ir/api/uwp/Accounts_List", null, new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
+                    var Result = await WebApi.Post(WebApi.WebApiURL + "api/uwp/Accounts_List", null, new HttpCredentialsHeaderValue("Bearer", WebApi.Token));
                     if (Result.IsSuccessStatusCode)
                     {
                         var DataResult = JsonConvert.DeserializeObject<IEnumerable<AccountViewModel>>(Result.Content.ToString());
