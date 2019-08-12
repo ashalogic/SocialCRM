@@ -54,6 +54,21 @@ namespace SocialCRM_UWP.Instagram
                   .SetRequestDelay(RequestDelay.FromSeconds(1, 2))
                   .Build();
             var loginResult = await InstaApi.LoginAsync();
+
+            if (loginResult.Info.Message == "Challenge is required")
+            {
+                var resgv = await InstaApi.GetVerifyStep();
+
+                var resvm = await InstaApi.ChooseVerifyMethod(0);
+
+                var resvc = await InstaApi.SendVerifyCode("297340");
+
+                if (resvc.Succeeded)
+                {
+                    return true;
+                }
+            }
+
             if (loginResult.Succeeded)
             {
                 if (InstaApi.IsUserAuthenticated)
