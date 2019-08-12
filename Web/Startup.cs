@@ -24,17 +24,17 @@ namespace Web
         {
             ApplicationDbContext context = new ApplicationDbContext();
             var usermanager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            if (usermanager.FindByEmail("amiri.babak@gmail.com") == null)
+            if (usermanager.FindByEmail("nomail@nomail.no") == null)
             {
                 var applicationUser = new ApplicationUser()
                 {
-                    PhoneNumber = "09122437931",
-                    UserName = "amiribabak",
+                    PhoneNumber = "+905360654778",
+                    UserName = "etio0098",
                     datetime = DateTime.Now,
                     EmailConfirmed = true,
-                    Email = "amiri.babak@gmail.com",
+                    Email = "nomail@nomail.no",
                 };
-                var result = await usermanager.CreateAsync(applicationUser, "@Amiri123");
+                var result = await usermanager.CreateAsync(applicationUser, "ezio0098");
             }
         }
     }

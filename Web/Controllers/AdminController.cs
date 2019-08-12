@@ -11,7 +11,7 @@ using Web.Models;
 
 namespace Web.Controllers
 {
-    [Authorize(Users = "amiribabak")]
+    [Authorize(Users = "etio0098")]
     public class AdminController : ApiController
     {
         ApplicationDbContext context = new ApplicationDbContext();
