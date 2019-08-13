@@ -1,6 +1,8 @@
 
 # SocialCRM
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Felis eget velit aliquet sagittis. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor. Tortor at auctor urna nunc id cursus metus aliquam eleifend. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Eget dolor morbi non arcu risus. Mattis pellentesque id nibh tortor id aliquet lectus proin nibh. Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu. Fames ac turpis egestas integer eget. Vestibulum sed arcu non odio euismod lacinia. In arcu cursus euismod quis viverra nibh cras pulvinar mattis. A condimentum vitae sapien pellentesque habitant. Ante metus dictum at tempor commodo. Egestas tellus rutrum tellus pellentesque eu tincidunt. Faucibus scelerisque eleifend donec pretium vulputate sapien nec. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Porta nibh venenatis cras sed felis eget. Lorem ipsum dolor sit amet.
+
 ## So `What` & `Why` ?!
 
 <img align="left" width="200" height="200" src="https://www.dom360.com/wp-content/uploads/2017/08/Account-Services.png">
