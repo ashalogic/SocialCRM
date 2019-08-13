@@ -1,20 +1,19 @@
 
 
+sdasad
+
+
 # SocialCRM
 
 ## This Project In `One` Look !
 <img align="left" width="200" height="200" src="https://www.dom360.com/wp-content/uploads/2017/08/Account-Services.png"/>
 
 It's private project for managing and analysis SocialNetworks
-```
-<img align="left" width="100" height="100" src="http://www.fillmurray.com/100/100">
-```
+
 
 ---
 
-
-
-
+## This Project In `One` Look !
 
 <p align="center">
   <img width="413" height="291" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/img1.jpg">
