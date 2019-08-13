@@ -1,19 +1,17 @@
 
 # SocialCRM
 
-## So `What` & `Why` ?!
+### So `What` & `Why` ?!
 
 <img align="left" width="100" height="100" src="https://www.dom360.com/wp-content/uploads/2017/08/Account-Services.png">
 
 ```
 It's private project for managing and analysis SocialNetworks  
-It's private project for managing and analysis SocialNetworks  
-It's private project for managing and analysis SocialNetworks  
 ```
 
 ---
 
-## This Project In `One` Look !
+### This Project In `One` Look !
 
 <p align="center">
   <img width="413" height="291" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/img1.jpg">
