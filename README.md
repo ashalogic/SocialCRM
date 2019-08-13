@@ -11,19 +11,22 @@
 Universal Windows Platform (UWP) version of SCRM 
 
 ### Images
-<p align="left">Login Page & Analysis Page</p>
+<h4 align="center">Login Page & Analysis Page</h4>
 <p align="center">
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/scrm.WebP">
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/analysis.WebP">
 </p>
+<h4 align="center">Login Page & Analysis Page</h4>
 <p align="center">
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/chat.WebP">
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/lottery.WebP">
 </p>
+<h4 align="center">Login Page & Analysis Page</h4>
 <p align="center">
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/posts.WebP">
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/hashtag.WebP">
 </p>
+<h4 align="center">Login Page & Analysis Page</h4>
 <p align="center">
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/followers.WebP">
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/comments.WebP">
