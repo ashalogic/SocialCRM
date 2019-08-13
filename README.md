@@ -2,9 +2,20 @@
 
 # SocialCRM
 
-It's private project for managing and analysis SocialNetworks
+## This Project In `One` Look !
+<img align="left" width="200" height="200" src="https://www.dom360.com/wp-content/uploads/2017/08/Account-Services.png"/>
 
-<h3 align="center">This Project In One Look !</h3>
+It's private project for managing and analysis SocialNetworks
+```
+<img align="left" width="100" height="100" src="http://www.fillmurray.com/100/100">
+```
+
+---
+
+
+
+
+
 <p align="center">
   <img width="413" height="291" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/img1.jpg">
   <img width="413" height="291" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/img2.jpg">
