@@ -1,15 +1,8 @@
-
-
-sdasad
-
-
 # SocialCRM
 
 ## This Project In `One` Look !
-<img align="left" width="200" height="200" src="https://www.dom360.com/wp-content/uploads/2017/08/Account-Services.png"/>
-
+<img align="left" width="200" height="200" src="https://www.dom360.com/wp-content/uploads/2017/08/Account-Services.png">
 It's private project for managing and analysis SocialNetworks
-
 
 ---
 
