@@ -56,18 +56,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/chat.WebP">
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/lottery.WebP">
 </p>
+
+---
+
 <h4 align="center">Posts Page & Hashtag Page</h4>
 <p align="center">
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/posts.WebP">
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/hashtag.WebP">
 </p>
+
+---
+
 <h4 align="center">Followers Page & Comments Page</h4>
 <p align="center">
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/followers.WebP">
   <img width="384" height="216" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/comments.WebP">
   
 </p>
-
-
-
-
