@@ -2,9 +2,9 @@
 
 # SocialCRM
 
-## What is it ??
 It's private project for managing and analysis SocialNetworks
 
+<h3 align="center">This Project In One Look !</h3>
 <p align="center">
   <img width="413" height="291" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/img1.jpg">
   <img width="413" height="291" src="https://github.com/ashalogic/SocialCRM/blob/master/docs/img/img2.jpg">
