@@ -16,7 +16,7 @@
         <Grid Background="{ThemeResource LightWhite}" FlowDirection="LeftToRight">
             <Grid VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeMediumAcrylicElementMediumBrush}" Canvas.ZIndex="10000" Grid.Row="0">
                 <Grid FlowDirection="RightToLeft" Margin="24" MaxWidth="820" VerticalAlignment="Center" HorizontalAlignment="Stretch" >
-                    <TextBox Background="White" BorderBrush="LightGray" Height="0" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" RequestedTheme="Light" FontSize="14" KeyDown="HashtagSearchbox_KeyDown" TextAlignment="Center" HorizontalAlignment="Stretch" x:Name="HashtagSearchbox" PlaceholderText="نام کاربری هدف"/>
+                    <TextBox Background="White" BorderBrush="LightGray" Height="auto" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" RequestedTheme="Light" FontSize="14" KeyDown="HashtagSearchbox_KeyDown" TextAlignment="Center" HorizontalAlignment="Stretch" x:Name="HashtagSearchbox" PlaceholderText="نام کاربری هدف"/>
                 </Grid>
             </Grid>
 

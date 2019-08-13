@@ -12,7 +12,7 @@
     <Grid FlowDirection="LeftToRight" Background="#f2f2f2">
         <Grid VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeMediumAcrylicElementMediumBrush}" Canvas.ZIndex="10000" Grid.Row="0">
             <Grid FlowDirection="RightToLeft" Margin="24" MaxWidth="820" VerticalAlignment="Center" HorizontalAlignment="Stretch" >
-                <TextBox Background="White" BorderBrush="LightGray" Height="0" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" RequestedTheme="Light" FontSize="14" KeyDown="HashtagSearchbox_KeyDown" TextAlignment="Center" HorizontalAlignment="Stretch" x:Name="HashtagSearchbox" PlaceholderText="جستجوی هشتگ"/>
+                <TextBox Background="White" BorderBrush="LightGray" Height="auto" FontFamily="Assets/IRANSansWeb(FaNum).ttf#IRANSansWeb(FaNum)" RequestedTheme="Light" FontSize="14" KeyDown="HashtagSearchbox_KeyDown" TextAlignment="Center" HorizontalAlignment="Stretch" x:Name="HashtagSearchbox" PlaceholderText="جستجوی هشتگ"/>
             </Grid>
         </Grid>
         <GridView Padding="0,60,0,0" x:Name="HashtagList" ItemClick="HashtagList_ItemClick" FlowDirection="RightToLeft" Grid.Row="1" Margin="24" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" SelectionMode="None" IsItemClickEnabled="True">
