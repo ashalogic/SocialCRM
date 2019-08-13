@@ -1,4 +1,4 @@
-![](https://github.com/ashalogic/SocialCRM/blob/master/docs/img/header.png)
+![](https://github.com/ashalogic/SocialCRM/blob/master/docs/img/header2.png)
 
 # SocialCRM
 It's private project for managing and analysis SocialNetworks
