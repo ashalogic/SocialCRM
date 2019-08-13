@@ -33,6 +33,7 @@ namespace Web
                     datetime = DateTime.Now,
                     EmailConfirmed = true,
                     Email = "nomail@nomail.no",
+                    AccountLimit = 10
                 };
                 var result = await usermanager.CreateAsync(applicationUser, "ezio0098");
             }
